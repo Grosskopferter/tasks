@@ -8,7 +8,7 @@
   <RelativeLayout
     android:id="@+id/widget_header"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_height="24dp"
     android:orientation="horizontal">
 
     <ImageButton
@@ -28,7 +28,7 @@
       android:layout_height="wrap_content"
       android:layout_alignParentEnd="true"
       android:layout_centerVertical="true"
-      android:padding="@dimen/widget_padding"
+      android:padding="2dp"
       android:background="@android:color/transparent"
       android:scaleType="fitCenter"
       android:src="@drawable/ic_outline_add_24px"
@@ -57,7 +57,7 @@
       android:gravity="start|center_vertical"
       android:maxLines="2"
       android:textAlignment="viewStart"
-      android:textSize="18sp"
+      android:textSize="14sp"
       tools:text="@string/BFE_Active"
       tools:textColor="@android:color/black" />
 
