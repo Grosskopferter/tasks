@@ -211,7 +211,7 @@ class TaskViewHolder internal constructor(
                 chip.setOnClickListener { v: View -> onChipClick(v) }
                 chipGroup.addView(chip)
             }
-            chipGroup.visibility = View.VISIBLE
+            chipGroup.visibility = View.GONE
         }
     }
 
