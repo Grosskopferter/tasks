@@ -69,9 +69,12 @@ class TaskViewHolder internal constructor(
 
     @BindView(R.id.hidden_icon)
     lateinit var hiddenIcon: View
-    
+
+    @BindView(R.id.listIndicator)
+    lateinit var listIndicator: View
+
     lateinit var task: TaskContainer
-    
+
     var indent = 0
         set(value) {
             field = value
@@ -166,6 +169,7 @@ class TaskViewHolder internal constructor(
                 setBottomPadding(rowPadding, nameView)
             }
         }
+        listIndicator.setBackgroundColor(chipProvider.getListTint(task))
     }
 
     private fun setupTitleAndCheckbox() {
