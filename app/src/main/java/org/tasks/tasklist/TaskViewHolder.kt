@@ -23,6 +23,7 @@ import org.tasks.dialogs.Linkify
 import org.tasks.preferences.Preferences
 import org.tasks.time.DateTimeUtils.startOfDay
 import org.tasks.ui.CheckBoxProvider
+import org.tasks.ui.ChipListCache
 import org.tasks.ui.ChipProvider
 import java.time.format.FormatStyle
 import java.util.*
@@ -44,7 +45,8 @@ class TaskViewHolder internal constructor(
         private val selectedColor: Int,
         private val rowPadding: Int,
         private val linkify: Linkify,
-        private val locale: Locale) : RecyclerView.ViewHolder(view) {
+        private val locale: Locale,
+        private val lists: ChipListCache) : RecyclerView.ViewHolder(view) {
 
     @BindView(R.id.row)
     lateinit var row: ViewGroup
@@ -169,7 +171,7 @@ class TaskViewHolder internal constructor(
                 setBottomPadding(rowPadding, nameView)
             }
         }
-        listIndicator.setBackgroundColor(chipProvider.getListTint(task))
+        listIndicator.setBackgroundColor(lists.getListTint(task))
     }
 
     private fun setupTitleAndCheckbox() {

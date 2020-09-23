@@ -5,9 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.RemoteViewsService;
+
 import com.todoroo.astrid.subtasks.SubtasksHelper;
-import dagger.hilt.android.AndroidEntryPoint;
-import javax.inject.Inject;
+
 import org.tasks.LocalBroadcastManager;
 import org.tasks.data.TaskDao;
 import org.tasks.locale.Locale;
@@ -15,6 +15,10 @@ import org.tasks.preferences.DefaultFilterProvider;
 import org.tasks.preferences.Preferences;
 import org.tasks.themes.ColorProvider;
 import org.tasks.ui.CheckBoxProvider;
+
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class ScrollableWidgetUpdateService extends RemoteViewsService {

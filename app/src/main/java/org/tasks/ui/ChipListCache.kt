@@ -6,6 +6,7 @@ import com.todoroo.astrid.api.GtasksFilter
 import com.todoroo.astrid.api.TagFilter
 import org.tasks.LocalBroadcastManager
 import org.tasks.data.*
+import org.tasks.themes.ColorProvider
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -54,6 +55,19 @@ class ChipListCache @Inject internal constructor(
 
     fun getTag(tag: String?): TagFilter? {
         return tagDatas[tag]
+    }
+
+    fun getListTint(task: TaskContainer): Int {
+        val googleTaskList = getGoogleTaskList(task.googleTaskList)
+        if (googleTaskList != null) {
+            return googleTaskList.tint
+        }
+        val calDavTaskList = getCaldavList(task.caldav)
+        if (calDavTaskList != null) {
+            return calDavTaskList.tint
+        }
+
+        return ColorProvider.BLUE_500
     }
 
     init {

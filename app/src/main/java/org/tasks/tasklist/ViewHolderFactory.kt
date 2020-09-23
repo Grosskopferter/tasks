@@ -13,6 +13,7 @@ import org.tasks.preferences.Preferences
 import org.tasks.preferences.ResourceResolver
 import org.tasks.tasklist.TaskViewHolder.ViewHolderCallbacks
 import org.tasks.ui.CheckBoxProvider
+import org.tasks.ui.ChipListCache
 import org.tasks.ui.ChipProvider
 import java.util.*
 import javax.inject.Inject
@@ -22,6 +23,7 @@ class ViewHolderFactory @Inject constructor(
         private val preferences: Preferences,
         private val chipProvider: ChipProvider,
         private val checkBoxProvider: CheckBoxProvider,
+        private val lists: ChipListCache,
         private val linkify: Linkify,
         private val locale: Locale) {
     private val textColorSecondary: Int = ResourceResolver.getData(context, android.R.attr.textColorSecondary)
@@ -55,5 +57,6 @@ class ViewHolderFactory @Inject constructor(
                     selectedColor,
                     rowPadding,
                     linkify,
-                    locale)
+                    locale,
+                    lists)
 }
