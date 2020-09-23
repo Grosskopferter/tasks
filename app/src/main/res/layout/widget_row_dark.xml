@@ -1,109 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:id="@+id/widget_row"
-  android:background="@drawable/widget_ripple_dark"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  tools:background="@color/md_background_dark">
-
-  <ImageView
-    android:id="@+id/widget_complete_box"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:padding="@dimen/widget_padding"
-    android:background="@drawable/widget_ripple_circle_dark"
-    tools:src="@drawable/ic_outline_check_box_outline_blank_24px"
-    tools:tint="@color/grey_500"/>
-
-  <ImageView
-    android:id="@+id/top_padding"
-    android:layout_alignParentTop="true"
-    android:layout_alignStart="@id/widget_text"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/widget_padding"
-    tools:ignore="ContentDescription" />
+    android:layout_height="wrap_content">
 
-  <TextView
-    android:id="@+id/widget_due_end"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignBaseline="@id/widget_text"
-    android:layout_alignParentEnd="true"
-    android:ellipsize="end"
-    android:gravity="start|center_vertical"
-    android:singleLine="true"
-    android:textAlignment="viewStart"
-    android:textSize="14sp"
-    android:background="@drawable/widget_ripple_circle_dark"
-    tools:text="Tomorrow"
-    tools:paddingEnd="@dimen/widget_padding"
-    tools:textColor="@color/white_60"/>
+    <RelativeLayout
+        android:id="@+id/widget_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/widget_ripple_dark"
+        tools:background="@color/md_background_dark">
 
-  <ImageView
-    android:id="@+id/hidden_icon"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_toEndOf="@id/widget_complete_box"
-    android:layout_below="@id/top_padding"
-    android:paddingStart="0dp"
-    android:paddingEnd="2dp"
-    android:visibility="gone"
-    android:src="@drawable/ic_outline_visibility_off_24px"
-    app:tint="@color/icon_tint_dark_alpha"
-    tools:visibility="visible"/>
+        <ImageView
+            android:id="@+id/widget_complete_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/widget_ripple_circle_dark"
+            android:padding="@dimen/widget_padding"
+            tools:src="@drawable/ic_outline_check_box_outline_blank_24px"
+            tools:tint="@color/grey_500" />
 
-  <TextView
-    android:id="@+id/widget_text"
-    android:layout_toEndOf="@id/hidden_icon"
-    android:layout_toStartOf="@id/widget_due_end"
-    android:layout_below="@id/top_padding"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/widget_padding"
-    android:paddingStart="0dp"
-    android:gravity="start|center_vertical"
-    android:maxLines="1"
-    android:ellipsize="end"
-    android:textAlignment="viewStart"
-    android:textSize="16sp"
-    tools:text="Task title"
-    tools:textColor="@color/white_87"/>
+        <ImageView
+            android:id="@+id/top_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/widget_text"
+            android:layout_alignParentTop="true"
+            android:paddingTop="@dimen/widget_padding"
+            tools:ignore="ContentDescription" />
 
-  <TextView
-    android:id="@+id/widget_description"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/widget_text"
-    android:layout_toEndOf="@id/widget_complete_box"
-    android:paddingTop="2dp"
-    android:paddingStart="0dp"
-    android:paddingEnd="@dimen/widget_padding"
-    android:maxLines="2"
-    android:ellipsize="end"
-    android:textAlignment="viewStart"
-    android:textSize="16sp"
-    android:textColor="@color/white_60"
-    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique magna mauris, vel vulputate elit varius sit amet. Etiam sed nisl diam. Aenean vulputate ex nec ex condimentum commodo. Nunc faucibus augue in lacus tincidunt pretium. Donec mollis ex a ipsum semper, faucibus viverra turpis consequat. Donec id suscipit est. Duis a consectetur justo. Nunc in diam urna." />
+        <TextView
+            android:id="@+id/widget_due_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/widget_text"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/widget_ripple_circle_dark"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            tools:paddingEnd="@dimen/widget_padding"
+            tools:text="Tomorrow"
+            tools:textColor="@color/white_60" />
 
-  <TextView
-    android:id="@+id/widget_due_bottom"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/widget_description"
-    android:layout_toEndOf="@id/widget_complete_box"
-    android:ellipsize="end"
-    android:gravity="start|center_vertical"
-    android:singleLine="true"
-    android:textAlignment="viewStart"
-    android:textSize="14sp"
-    android:background="@drawable/widget_ripple_circle_dark"
-    tools:text="Tomorrow"
-    tools:textColor="@color/white_60"/>
+        <ImageView
+            android:id="@+id/hidden_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_padding"
+            android:layout_toEndOf="@id/widget_complete_box"
+            android:paddingStart="0dp"
+            android:paddingEnd="2dp"
+            android:src="@drawable/ic_outline_visibility_off_24px"
+            android:visibility="gone"
+            app:tint="@color/icon_tint_dark_alpha"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/widget_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_padding"
+            android:layout_toStartOf="@id/widget_due_end"
+            android:layout_toEndOf="@id/hidden_icon"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/widget_padding"
+            android:textAlignment="viewStart"
+            android:textSize="16sp"
+            tools:text="Task title"
+            tools:textColor="@color/white_87" />
+
+        <TextView
+            android:id="@+id/widget_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widget_text"
+            android:layout_toEndOf="@id/widget_complete_box"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingStart="0dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="@dimen/widget_padding"
+            android:textAlignment="viewStart"
+            android:textColor="@color/white_60"
+            android:textSize="16sp"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique magna mauris, vel vulputate elit varius sit amet. Etiam sed nisl diam. Aenean vulputate ex nec ex condimentum commodo. Nunc faucibus augue in lacus tincidunt pretium. Donec mollis ex a ipsum semper, faucibus viverra turpis consequat. Donec id suscipit est. Duis a consectetur justo. Nunc in diam urna." />
+
+        <TextView
+            android:id="@+id/widget_due_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/widget_description"
+            android:layout_toEndOf="@id/widget_complete_box"
+            android:background="@drawable/widget_ripple_circle_dark"
+            android:ellipsize="end"
+            android:gravity="start|center_vertical"
+            android:singleLine="true"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            tools:text="Tomorrow"
+            tools:textColor="@color/white_60" />
 
   <GridLayout
     android:id="@+id/chips"
@@ -122,13 +126,25 @@
     android:paddingTop="@dimen/widget_padding"
     tools:ignore="ContentDescription" />
 
-  <ImageView
-    android:id="@+id/divider"
-    android:layout_alignParentBottom="true"
-    android:layout_width="match_parent"
-    android:scaleType="fitXY"
-    android:layout_height=".5dp"
-    android:background="@color/white_12"
-    tools:ignore="ContentDescription" />
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height=".5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white_12"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/listIndicator"
+        android:layout_width="6dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/amber_500" />
+
+
+</FrameLayout>

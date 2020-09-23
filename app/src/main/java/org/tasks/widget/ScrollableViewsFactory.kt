@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Paint
 import android.view.View
+import android.widget.ImageView
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService.RemoteViewsFactory
 import com.todoroo.andlib.utility.DateUtilities
@@ -22,6 +23,8 @@ import org.tasks.locale.Locale
 import org.tasks.preferences.DefaultFilterProvider
 import org.tasks.preferences.Preferences
 import org.tasks.ui.CheckBoxProvider
+import org.tasks.ui.ChipListCache
+import org.tasks.ui.ChipProvider
 import timber.log.Timber
 import java.time.format.FormatStyle
 import java.util.*
@@ -137,6 +140,8 @@ internal class ScrollableViewsFactory(
             if (task.hasDueDate() && task.isDueToday) {
                 textColorTitle = textColorPrimary
             }
+            row.setInt(R.id.listIndicator,"setBackgroundColor",
+                    lists.getListTint(taskContainer))
             if (showFullTaskTitle) {
                 row.setInt(R.id.widget_text, "setMaxLines", Int.MAX_VALUE)
             }
