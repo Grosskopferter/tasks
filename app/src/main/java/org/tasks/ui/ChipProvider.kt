@@ -92,6 +92,19 @@ class ChipProvider @Inject constructor(
         return chips
     }
 
+    fun getListTint(task: TaskContainer): Int {
+        val googleTaskList = lists.getGoogleTaskList(task.googleTaskList)
+        if (googleTaskList != null) {
+            return googleTaskList.tint
+        }
+        val calDavTaskList = lists.getCaldavList(task.caldav)
+        if (calDavTaskList != null) {
+            return calDavTaskList.tint
+        }
+
+        return ColorProvider.BLUE_500
+    }
+
     fun apply(chip: Chip, tagData: TagData) {
         apply(
                 chip,

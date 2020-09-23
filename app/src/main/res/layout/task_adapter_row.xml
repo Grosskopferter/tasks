@@ -107,6 +107,17 @@
     </RelativeLayout>
 
     <View
+        android:id="@+id/listIndicator"
+        android:layout_width="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/amber_500"
+        />
+
+    <View
       style="@style/horizontal_divider"
       android:visibility="?attr/horizontal_divider_visibility"
       android:layout_gravity="bottom" />
