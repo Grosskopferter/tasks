@@ -63,12 +63,12 @@ android {
             val tasksKeyAlias: String? by project
             val tasksStoreFile: String? by project
             val tasksStorePassword: String? by project
-            val tasksKeyPassword: String? by project
+            val TasksPW: String? by project
 
-            keyAlias = tasksKeyAlias
-            storeFile = file(tasksStoreFile ?: "none")
-            storePassword = tasksStorePassword
-            keyPassword = tasksKeyPassword
+            keyAlias = "alias_name"
+            storeFile = file("tasks.keystore")
+            storePassword = TasksPW
+            keyPassword = TasksPW
         }
     }
 
