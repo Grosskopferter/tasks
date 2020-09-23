@@ -236,6 +236,13 @@ class Task : Parcelable {
             return dueDate < compareTo && !isCompleted
         }
 
+    val isDueToday: Boolean
+        get() {
+            val dueDate = dueDate
+            val compareTo = DateTimeUtils.newDateTime().plusDays(1).startOfDay().millis
+            return dueDate < compareTo && !isCompleted
+        }
+
     fun repeatAfterCompletion(): Boolean = recurrence.isRepeatAfterCompletion()
 
     fun sanitizedRecurrence(): String? = getRecurrenceWithoutFrom()?.sanitizeRRule()

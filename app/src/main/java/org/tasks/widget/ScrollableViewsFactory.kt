@@ -207,7 +207,7 @@ internal class ScrollableViewsFactory(
         try {
             val taskContainer = getTask(position) ?: return null
             val task = taskContainer.getTask()
-            var textColorTitle = textColorPrimary
+            var textColorTitle = textColorSecondary
             val row = newRemoteView()
             if (task.isHidden) {
                 textColorTitle = textColorSecondary
@@ -231,6 +231,9 @@ internal class ScrollableViewsFactory(
                 if (task.hasDueDate() && task.isOverdue) {
                     textColorTitle = context.getColor(R.color.overdue)
                 }
+            }
+            if (task.hasDueDate() && task.isDueToday) {
+                textColorTitle = textColorPrimary
             }
             if (showFullTaskTitle) {
                 row.setInt(R.id.widget_text, "setMaxLines", Int.MAX_VALUE)
