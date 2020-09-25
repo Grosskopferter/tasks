@@ -6,17 +6,20 @@
 
 package com.todoroo.astrid.core;
 
-import static org.tasks.db.QueryUtils.showCompleted;
-import static org.tasks.db.QueryUtils.showHidden;
-import static org.tasks.db.QueryUtils.showRecentlyCompleted;
-
 import android.annotation.SuppressLint;
+
 import androidx.annotation.Nullable;
+
 import com.todoroo.andlib.sql.Functions;
 import com.todoroo.andlib.sql.Order;
 import com.todoroo.astrid.data.Task;
+
 import org.tasks.R;
 import org.tasks.preferences.Preferences;
+
+import static org.tasks.db.QueryUtils.showCompleted;
+import static org.tasks.db.QueryUtils.showHidden;
+import static org.tasks.db.QueryUtils.showRecentlyCompleted;
 
 /**
  * Helpers for sorting a list of tasks
@@ -106,13 +109,13 @@ public class SortHelper {
       default:
         order =
             Order.asc(
-                "(CASE WHEN (dueDate=0) "
+                "(CASE WHEN (completed!=0) THEN (strftime('%s','now')*1000)*3 ELSE (CASE WHEN (dueDate=0) "
                     + // if no due date
                     "THEN (strftime('%s','now')*1000)*2 "
                     + // then now * 2
                     "ELSE ("
                     + ADJUSTED_DUE_DATE
-                    + ") END) "
+                    + ") END) END)"
                     + // else due time
 					// add slightly less than 2 days * importance to give due date priority over importance in case of tie
                     "+ 172799999 * importance");
