@@ -109,6 +109,14 @@ public class DateUtilities {
             : getFullDate(newDateTime(date), locale, style);
   }
 
+  public static String getRelativeDate(Context context, long date, java.util.Locale locale, FormatStyle style) {
+    String day = getRelativeDay(context, date, locale, isAbbreviated(style), false);
+    if (!isNullOrEmpty(day)) {
+        return day;
+    }
+    return getFullDate(newDateTime(date), locale, style);
+  }
+
   private static boolean isAbbreviated(FormatStyle style) {
     return style == FormatStyle.SHORT || style == FormatStyle.MEDIUM;
   }

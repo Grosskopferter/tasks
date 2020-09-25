@@ -234,7 +234,7 @@ internal class ScrollableViewsFactory(
                     textColorTitle = context.getColor(R.color.overdue)
                 }
             }
-            if (task.hasDueDate() && task.isDueToday) {
+            if (task.hasDueDate() && (task.isDueToday || task.isOverdue) ) {
                 textColorTitle = textColorPrimary
             }
             row.setInt(R.id.listIndicator,"setBackgroundColor",
@@ -332,18 +332,10 @@ internal class ScrollableViewsFactory(
                 row.setViewPadding(R.id.widget_due_end, hPad, vPad, hPad, vPad)
             }
             row.setViewVisibility(dueDateRes, View.VISIBLE)
-            val text = if (filter?.supportsSorting() == true
-                    && sortMode == SortHelper.SORT_DUE
-                    && !disableGroups
-                    && task.sortGroup?.startOfDay() == task.dueDate.startOfDay()) {
-                task.takeIf { it.hasDueTime() }?.let {
-                    DateUtilities.getTimeString(context, DateTimeUtils.newDateTime(task.dueDate))
-                }
-            } else {
-                DateUtilities.getRelativeDateTime(
-                        context, task.dueDate, locale.locale, FormatStyle.MEDIUM)
-            }
-            row.setTextViewText(dueDateRes, text)
+            row.setTextViewText(
+                    dueDateRes,
+                    DateUtilities.getRelativeDate(
+                            context, task.dueDate, locale.locale, FormatStyle.MEDIUM))
             row.setTextColor(
                     dueDateRes,
                     if (task.isOverdue) context.getColor(R.color.overdue) else textColorSecondary)
