@@ -44,7 +44,7 @@
             android:singleLine="true"
             android:textAlignment="viewStart"
             android:textSize="14sp"
-            tools:paddingEnd="6dp"
+            tools:paddingEnd="@dimen/widget_padding"
             tools:text="Tomorrow"
             tools:textColor="@color/white_60" />
 
@@ -72,10 +72,10 @@
             android:gravity="start|center_vertical"
             android:maxLines="1"
             android:paddingStart="0dp"
-            android:paddingEnd="2dp"
+            android:paddingEnd="@dimen/widget_padding"
             android:textAlignment="viewStart"
             android:textSize="16sp"
-            tools:text="Task title with a longer name that can lead"
+            tools:text="Task title"
             tools:textColor="@color/white_87" />
 
         <TextView
