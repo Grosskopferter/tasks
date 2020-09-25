@@ -146,8 +146,7 @@
         android:layout_width="6dp"
         android:layout_height="match_parent"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:background="@color/amber_500" />
+        android:layout_marginBottom="2dp" />
 
 
 </FrameLayout>
