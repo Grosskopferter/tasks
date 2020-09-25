@@ -135,7 +135,7 @@ internal class ScrollableViewsFactory(
                     textColorTitle = context.getColor(R.color.overdue)
                 }
             }
-            if (task.hasDueDate() && task.isDueToday) {
+            if (task.hasDueDate() && (task.isDueToday || task.isOverdue) ) {
                 textColorTitle = textColorPrimary
             }
             row.setInt(R.id.listIndicator,"setBackgroundColor",
@@ -226,7 +226,7 @@ internal class ScrollableViewsFactory(
             row.setViewVisibility(dueDateRes, View.VISIBLE)
             row.setTextViewText(
                     dueDateRes,
-                    DateUtilities.getRelativeDateTime(
+                    DateUtilities.getRelativeDate(
                             context, task.dueDate, locale.locale, FormatStyle.MEDIUM))
             row.setTextColor(
                     dueDateRes,
