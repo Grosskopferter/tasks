@@ -230,7 +230,7 @@ internal class ScrollableViewsFactory(
                             context, task.dueDate, locale.locale, FormatStyle.MEDIUM))
             row.setTextColor(
                     dueDateRes,
-                    if (task.isOverdue) context.getColor(R.color.overdue) else textColorSecondary)
+                    textColorSecondary)
             row.setFloat(dueDateRes, "setTextSize", dueDateTextSize)
             if (handleDueDateClick) {
                 row.setOnClickFillInIntent(
