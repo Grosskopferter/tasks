@@ -61,6 +61,15 @@
       tools:text="@string/BFE_Active"
       tools:textColor="@android:color/black" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@color/white_66"
+        tools:ignore="ContentDescription" />
   </RelativeLayout>
 
   <ListView

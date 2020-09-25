@@ -55,10 +55,10 @@ class TasksWidget : AppWidgetProvider() {
             remoteViews.setViewPadding(R.id.widget_title, widgetTitlePadding, 0, 0, 0)
             remoteViews.setViewVisibility(
                     R.id.widget_reconfigure, if (widgetPreferences.showSettings()) View.VISIBLE else View.GONE)
-            remoteViews.setInt(R.id.widget_title, "setTextColor", color.colorOnPrimary)
-            remoteViews.setInt(R.id.widget_button, "setColorFilter", color.colorOnPrimary)
-            remoteViews.setInt(R.id.widget_reconfigure, "setColorFilter", color.colorOnPrimary)
-            remoteViews.setInt(R.id.widget_change_list, "setColorFilter", color.colorOnPrimary)
+            remoteViews.setInt(R.id.widget_title, "setTextColor", context.getColor(R.color.white_66))
+            remoteViews.setInt(R.id.widget_button, "setColorFilter", context.getColor(R.color.white_66))
+            remoteViews.setInt(R.id.widget_reconfigure, "setColorFilter", context.getColor(R.color.white_66))
+            remoteViews.setInt(R.id.widget_change_list, "setColorFilter", context.getColor(R.color.white_66))
         } else {
             remoteViews.setViewVisibility(R.id.widget_header, View.GONE)
         }
