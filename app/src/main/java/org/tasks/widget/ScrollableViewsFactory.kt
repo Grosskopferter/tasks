@@ -276,7 +276,7 @@ internal class ScrollableViewsFactory(
                 row.setViewVisibility(R.id.divider, View.GONE)
             }
             row.removeAllViews(R.id.chips)
-            if (showSubtasks && taskContainer.hasChildren()) {
+            /*if (showSubtasks && taskContainer.hasChildren()) {
                 val chip = chipProvider.getSubtaskChip(taskContainer)
                 row.addView(R.id.chips, chip)
                 row.setOnClickFillInIntent(
@@ -301,6 +301,7 @@ internal class ScrollableViewsFactory(
                         .getTagChips(filter, taskContainer)
                         .forEach { row.addView(R.id.chips, it) }
             }
+            }*/
             row.setInt(R.id.widget_row, "setLayoutDirection", locale.directionality)
             val startPad = taskContainer.getIndent() * indentPadding
             row.setViewPadding(R.id.widget_row, if (isRtl) 0 else startPad, 0, if (isRtl) startPad else 0, 0)
