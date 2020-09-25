@@ -74,4 +74,8 @@ class ChipProvider @Inject constructor(
             BuildConfig.APPLICATION_ID,
             if (isDark) R.layout.widget_chip_dark else R.layout.widget_chip_light
     )
+
+    fun getListTint(taskContainer: TaskContainer): Int {
+        return chipListCache.getListTint(taskContainer)
+    }
 }

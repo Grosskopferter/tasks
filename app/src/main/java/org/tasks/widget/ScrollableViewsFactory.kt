@@ -23,8 +23,6 @@ import org.tasks.locale.Locale
 import org.tasks.preferences.DefaultFilterProvider
 import org.tasks.preferences.Preferences
 import org.tasks.ui.CheckBoxProvider
-import org.tasks.ui.ChipListCache
-import org.tasks.ui.ChipProvider
 import timber.log.Timber
 import java.time.format.FormatStyle
 import java.util.*
@@ -141,7 +139,7 @@ internal class ScrollableViewsFactory(
                 textColorTitle = textColorPrimary
             }
             row.setInt(R.id.listIndicator,"setBackgroundColor",
-                    lists.getListTint(taskContainer))
+                    chipProvider.getListTint(taskContainer))
             if (showFullTaskTitle) {
                 row.setInt(R.id.widget_text, "setMaxLines", Int.MAX_VALUE)
             }
@@ -179,7 +177,7 @@ internal class ScrollableViewsFactory(
                 row.setViewVisibility(R.id.divider, View.GONE)
             }
             row.removeAllViews(R.id.chips)
-            if (showSubtasks && taskContainer.hasChildren()) {
+            /*if (showSubtasks && taskContainer.hasChildren()) {
                 val chip = chipProvider.getSubtaskChip(taskContainer)
                 row.addView(R.id.chips, chip)
                 row.setOnClickFillInIntent(
@@ -193,7 +191,7 @@ internal class ScrollableViewsFactory(
                 chipProvider
                         .getListChip(filter, taskContainer)
                         ?.let { row.addView(R.id.chips, it) }
-            }
+            }*/
             row.setInt(R.id.widget_row, "setLayoutDirection", locale.directionality)
             val startPad = taskContainer.getIndent() * indentPadding
             row.setViewPadding(R.id.widget_row, if (isRtl) 0 else startPad, 0, if (isRtl) startPad else 0, 0)
