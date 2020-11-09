@@ -127,7 +127,8 @@ class ReminderService internal constructor(
             dueDateAlarm = if (task.hasDueTime()) {
                 dueDate
             } else {
-                DateTime(dueDate).withMillisOfDay(preferences.defaultDueTime).millis
+                // DateTime(dueDate).withMillisOfDay(preferences.defaultDueTime).millis
+                return NO_ALARM
             }
             return if (lastReminder < dueDateAlarm) dueDateAlarm else NO_ALARM
         }
