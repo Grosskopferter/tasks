@@ -200,6 +200,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:${Versions.work}")
     implementation("com.mapbox.mapboxsdk:mapbox-android-core:3.0.0")
     implementation("com.mapbox.mapboxsdk:mapbox-sdk-services:5.3.0")
+    implementation("com.mapbox.mapboxsdk:mapbox-android-telemetry:6.1.0")
     implementation("com.etesync:journalmanager:1.1.1")
     implementation("com.github.QuadFlask:colorpicker:0.0.15")
 
