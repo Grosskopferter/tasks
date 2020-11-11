@@ -1,13 +1,14 @@
 package org.tasks.billing;
 
+import org.tasks.LocalBroadcastManager;
+import org.tasks.preferences.Preferences;
+
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import org.tasks.BuildConfig;
-import org.tasks.LocalBroadcastManager;
-import org.tasks.R;
-import org.tasks.preferences.Preferences;
+
 import timber.log.Timber;
 
 @Singleton
@@ -73,11 +74,11 @@ public class Inventory {
   }
 
   public boolean hasPro() {
-    //noinspection ConstantConditions
-    return subscription != null
-        || purchases.containsKey(SKU_VIP)
-        || BuildConfig.FLAVOR.equals("generic")
-        || (BuildConfig.DEBUG && preferences.getBoolean(R.string.p_debug_pro, false));
+    return true;
+//    return subscription != null
+//        || purchases.containsKey(SKU_VIP)
+//        || BuildConfig.FLAVOR.equals("generic")
+//        || (BuildConfig.DEBUG && preferences.getBoolean(R.string.p_debug_pro, false));
   }
 
   boolean purchased(String sku) {
